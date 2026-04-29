@@ -7,7 +7,7 @@ SEEDED_FLAG="/var/lib/mysql/.compcraft_seeded"
 mkdir -p /run/mysqld /var/lib/mysql /var/log/compcraft
 chown -R mysql:mysql /run/mysqld /var/lib/mysql
 
-# Если пользователь подключил пустой volume, системных таблиц MariaDB ещё нет.
+
 if [ ! -d "/var/lib/mysql/mysql" ]; then
   echo "[CompCraft] Инициализация MariaDB..."
   mariadb-install-db --user=mysql --datadir=/var/lib/mysql --skip-test-db >/dev/null
@@ -29,7 +29,7 @@ for i in {1..60}; do
   fi
 done
 
-# Создаём БД и пользователя для приложения. Для one-click контейнера даём права на seed/init.
+
 mysql --protocol=socket --socket="$MYSQL_SOCKET" -uroot <<SQL
 CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER IF NOT EXISTS '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}';

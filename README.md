@@ -1,6 +1,11 @@
 
 
 ### запуск
+Убедитесть что у вас устанвлен Docker, и запущен docker engine
+Проверить можно открв cmd
+```bash 
+docker -v
+```
 ## Docker
 ```bash
 docker run -d --name compcraft -p 8080:80 -v compcraft_mysql:/var/lib/mysql chapik38/compcraft:latest
