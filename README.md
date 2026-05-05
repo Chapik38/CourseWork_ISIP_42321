@@ -13,6 +13,14 @@ docker run -d --name compcraft -p 8080:80 -v compcraft_mysql:/var/lib/mysql chap
 ### Откройте сайт 
 http://localhost:8080
 
+ИЛИ
+```bash
+docker pull chapik38/compcraft:latest
+docker run -d --name compcraft -p 8080:80 -v compcraft_mysql:/var/lib/mysql chapik38/compcraft:latest
+```
+### Откройте сайт 
+http://localhost:8080
+
 ### Сборка Docker Образа из исходников
 
 Соберите frontend
